@@ -11,22 +11,25 @@
             padding: 0;
             display: flex;
             flex-direction: column;
+            background-color: #e9e7e7af;
         }
 
         header {
-            background-color: #333;
+            background-color: #BA5C12;
             padding: 10px;
-            color: white;
+            color: rgb(0, 0, 0);
             width: 100%;
             display: flex;
-            flex-direction: column; /* Updated to column layout */
-            align-items: center; /* Center items horizontally */
-            position: relative;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 2;
         }
 
         header h1 {
-            margin-bottom: 10px; /* Adjusted margin for space under the title */
-            font-size: 30px; /* Increased font size for the title */
+            margin-bottom: 10px;
+            font-size: 40px;
         }
 
         header p {
@@ -37,63 +40,67 @@
         }
 
         nav {
-            background-color: #555;
+            background-color: #BA5C12;
             padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 120px; /* Adjusted width for a bigger sidebar */
+            width: 120px;
             overflow: hidden;
-            position: fixed; /* Make the sidebar fixed */
-            top: 84px; /* Adjusted top position to touch the title */
-            left: 0; /* Align the sidebar to the left */
-            bottom: 0; /* Stretch the sidebar to the bottom */
+            position: fixed;
+            top: 94px; /* Adjusted top position to move the sidebar down */
+            bottom: 0;
+            z-index: 1;
         }
 
         nav a {
-            color: white;
+            color: rgb(0, 0, 0);
             text-decoration: none;
             padding: 10px;
             text-align: center;
-            font-size: 18px; /* Increased font size for the sidebar text */
+            font-size: 21px;
         }
 
         nav a:hover {
-            background-color: #777;
+            background-color: #7c3d0c86;
         }
 
         main {
             flex: 1;
             display: flex;
-            flex-direction: column; /* Updated to column layout */
-            align-items: center; /* Center items horizontally */
-            margin-top: 20px; /* Adjusted margin to start below the title box */
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px; /* Adjusted margin to leave space for the header and sidebar */
+            padding-left: 140px;
+            z-index: 0;
         }
 
         section {
-            margin-top: 20px; /* Adjust the spacing between sections */
-            width: 100%; /* Make sections take full width */
-            max-width: 600px; /* Set max-width for readability, adjust as needed */
-            display: none; /* Hide all sections by default */
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            display: none;
         }
 
         section.active {
-            display: block; /* Show the active section */
+            display: block;
         }
 
         section h2 {
-            font-size: 1.5em; /* Adjust the font size for section titles */
-            margin-bottom: 10px; /* Add margin below section titles */
+            font-size: 2em;
+            margin-bottom: 10px;
         }
 
         section p {
-            margin-bottom: 15px; /* Add margin below paragraphs */
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #000000
         }
 
         img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 15px; /* Add margin below images */
+            margin-bottom: 15px;
         }
 
         #menu-toggle {
@@ -102,7 +109,9 @@
             position: fixed;
             left: 10px;
             top: 10px;
+            z-index: 3;
         }
+
     </style>
 </head>
 <body>
@@ -113,11 +122,12 @@
     </header>
 
     <nav>
-        <a href="#main" onclick="showSection('main')">Main</a>
-        <a href="#phishing" onclick="showSection('phishing')">Phishing Scams</a>
-        <a href="#tbd1" onclick="showSection('tbd1')">TBD1</a>
-        <a href="#tbd2" onclick="showSection('tbd2')">TBD2</a>
-        <a href="#tbd3" onclick="showSection('tbd3')">TBD3</a>
+        <a href="#main" onclick="scrollToTop('main')">Main</a>
+        <a href="#phishing" onclick="scrollToTop('phishing')">Phishing Scams</a>
+        <a href="#tbd1" onclick="scrollToTop('Fake Website')">Fake Site</a>
+        <a href="#tbd2" onclick="scrollToTop('tbd2')">TBD2</a>
+        <a href="#tbd3" onclick="scrollToTop('tbd3')">TBD3</a>
+        
     </nav>
 
     <main>
@@ -130,16 +140,18 @@
 
         <section id="phishing">
             <h2>Phishing Scams</h2>
-            <img src="phishing_image.jpg" alt="Phishing Image">
-            <p>This is the content for the Phishing Scams section. It describes phishing scams in detail.</p>
-            <img src="phishing_image_after_paragraph_2.jpg" alt="Phishing Image after Paragraph 2">
+            <img src="scam-4-3-1024x860.webp" alt="Phishing Image">
+            <p>Phishing scams are sophisticated traps, targeting unsuspecting individuals who inadvertently disclose sensitive information. Common tactics include the use of deceptive emails and messages, where phishers pose as trustworthy entities, employing urgency to prompt swift responses. They also create fake websites mirroring legitimate ones, enticing users to input confidential details. Social engineering plays a pivotal role, with cybercriminals assuming personas of authority figures or acquaintances to manipulate individuals into willingly sharing sensitive information.</p>
+            <h2></h2>
+            <p>In addition to the proactive prevention measures mentioned earlier, it is crucial to emphasize the significance of verifying the legitimacy of websites. Before entering any personal or sensitive information, carefully scrutinize the website's authenticity. Legitimate websites typically have secure and recognizable URLs. Be cautious of misspelled domains, unusual variations, or subtle discrepancies that may indicate a fraudulent site.</p>
+            <img src="GettyImages-1390481905-1600x900.jpg" alt="Phishing Image after Paragraph 2">
+            <p>Always navigate directly to websites through official channels, avoiding links provided in emails or messages, especially those that appear suspicious. Taking these extra precautions and ensuring the legitimacy of the website you interact with adds an essential layer of protection against falling victim to phishing scams. Remember, a few moments spent verifying the legitimacy of a site can save you from potential cyber threats and safeguard your online security. Stay vigilant, stay informed, and navigate the digital landscape with confidence.</p>
         </section>
 
         <section id="tbd1">
-            <h2>TBD1</h2>
-            <img src="tbd1_image.jpg" alt="TBD1 Image">
-            <p>This is the content for the TBD1 section. It talks about TBD1 in detail.</p>
-            <img src="tbd1_image_after_paragraph_2.jpg" alt="TBD1 Image after Paragraph 2">
+            <h2>Fake Website</h2>
+            <a href="index.html"><img src="Screenshot 2024-01-09 225143.png" alt="TBD1 Image"></a>
+            <p>Click the Picture to be Transported to a Fake Phishing Website</p>
         </section>
 
         <section id="tbd2">
@@ -156,11 +168,13 @@
             <img src="tbd3_image_after_paragraph_2.jpg" alt="TBD3 Image after Paragraph 2">
         </section>
 
-        <section id="after">    
-            <h2>after</h2>
-            <img src="tbd3_image.jpg" alt="TBD3 Image">
-            <p>This is the content for the after section. It discusses after in detail.</p>
-            <img src="tbd3_image_after_paragraph_2.jpg" alt="TBD3 Image after Paragraph 2">
+        <section id="after">
+              
+            <h2>You were just a part of a Phising Scam...</h2>
+            <img src="phishing-3390518_1920.jpg" alt="Someone Getting Phished">
+            <p>Falling prey to a phishing scam can unleash a cascade of potential dangers that extend beyond the immediate impact of unauthorized account access. Phishers often exploit the trust individuals place in seemingly authentic messages or websites, using deceptive tactics to harvest sensitive information. Once armed with this data, cybercriminals can engage in identity theft, commit financial fraud, or launch targeted attacks. The consequences may include compromised online accounts, financial losses, and even reputational damage. It's not just about the immediate threat; the aftermath of a successful phishing attempt can linger, requiring extensive efforts to reclaim control and restore your digital security. </p>
+            <h2></h2>
+            <p>To shield yourself from these risks, explore the dedicated "Phishing Scams" section on the left side. This resource provides comprehensive information on the evolving strategies employed by cybercriminals, empowering you to recognize and thwart phishing attempts effectively. Discover proactive steps you can take to fortify your defenses, including adopting secure online practices and leveraging technological tools. Education is your greatest asset in the ongoing battle against phishing scams. Click on the left side to delve deeper into this crucial topic and arm yourself with the knowledge needed to navigate the digital landscape securely.</p>
         </section>
     </main>
 
@@ -194,6 +208,13 @@
                 showSection(fragment);
             }
         };
+
+        function scrollToTop(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     </script>
 
 </body>

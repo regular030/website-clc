@@ -20,8 +20,9 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
             margin: 0 auto;
+            width: 500px; /* Set a fixed width for the container */
+            height: 500px; /* Set a fixed height for the container */
         }
 
         .error-message {
@@ -38,6 +39,20 @@
             overflow: hidden;
             transition: height 0.3s ease; /* Smooth transition for the height change */
         }
+
+        #username,
+        #password {
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        #login-button {
+            padding: 15px; /* Set padding for the button */
+            width: 100%; /* Make the button take up full width */
+            font-size: 16px; /* Set font size for the button text */
+        }
     </style>
     <title>Login Page</title>
 </head>
@@ -46,15 +61,13 @@
         <img src="Instagram_logo_2022.svg.png" alt="Instagram Logo" width="200">
         <h2>Login</h2>
         <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value=" " required>
+            <input type="text" id="username" name="username" placeholder="Username" required>
             <div id="username-error" class="error-message">Username must be at least 3 characters long.</div>
             <br>
-            <label for="password" id="password-label">Password:</label>
-            <input type="password" id="password" name="password" value="" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
             <div id="password-error" class="error-message">Password must be at least 7 characters long and include 1 uppercase letter, 1 lowercase letter, and 1 number.</div>
             <br>
-            <button type="button" onclick="validateCredentials()">Login</button>
+            <button type="button" id="login-button" onclick="validateCredentials()">Login</button>
         </form>
 
         <!-- Error container to confine error messages -->
@@ -101,25 +114,8 @@
             var isUsernameValid = validateUsername();
             var isPasswordValid = validatePassword();
 
-            // Adjust the height of the error container to include error messages
-            var errorContainer = document.getElementById('error-container');
-            var errorMessages = document.querySelectorAll('.error-message');
-            
-            // Filter out visible error messages
-            var visibleErrorMessages = Array.from(errorMessages).filter(function (element) {
-                return element.style.display !== 'none';
-            });
-
-            // Get the total height of visible error messages
-            var errorMessagesHeight = visibleErrorMessages.reduce(function (totalHeight, element) {
-                return totalHeight + element.offsetHeight;
-            }, 0);
-
-            // Set the height of the error container
-            errorContainer.style.height = errorMessagesHeight + 'px';
-
+            // Credentials are valid, redirect to pt2.html
             if (isUsernameValid && isPasswordValid) {
-                // Credentials are valid, redirect to pt2.html
                 window.location.href = 'pt2.html';
             }
         }
